@@ -1,4 +1,4 @@
-// use crate::dayrunner::{day01::day01, day02::day02};
+use crate::dayrunner::day01::day01;
 use std::path::PathBuf;
 
 pub fn rundays(path: &str, runtype: &str, day: u32) -> Result<(), Box<dyn std::error::Error>> {
@@ -7,7 +7,7 @@ pub fn rundays(path: &str, runtype: &str, day: u32) -> Result<(), Box<dyn std::e
     path_buf.push(format!("{}.txt", runtype));
 
     match day {
-        // 1 => day01::solve1(path_buf.to_str().unwrap()),
+        1 => day01::solve(path_buf.to_str().unwrap()),
         // 2 => day02::solve1(path_buf.to_str().unwrap()),
         // Add more days as needed
         _ => {
