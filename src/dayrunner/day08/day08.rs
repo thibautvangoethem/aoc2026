@@ -1,6 +1,6 @@
 use std::{
     cmp,
-    fmt::{self, Display},
+    fmt::{self},
     fs,
     str::FromStr,
     vec,
