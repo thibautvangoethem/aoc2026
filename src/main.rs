@@ -7,7 +7,7 @@ use std::env;
 
 fn main() -> Result<(), Box<dyn std::error::Error>> {
     let (mode, day, runtype) = parse_args()?;
-    // let (mode, day, runtype) = ("run".to_string(), 9, Some("test".to_string()));
+    //let (mode, day, runtype) = ("run".to_string(), 9, Some("test".to_string()));
     run_mode(mode, day, runtype)
 }
 
@@ -43,7 +43,14 @@ fn run_mode(
         "generate" => generate(r"C:\Users\thiba\Desktop\aoc\aoc2025\src\dayrunner", day),
         "run" => {
             let runtype = runtype.unwrap();
-            rundays(r"C:\Users\thiba\Desktop\aoc\aoc2025\input", &runtype, day)
+            if day == 0 {
+                for i in 1..=12 {
+                    let _ = rundays(r"C:\Users\thiba\Desktop\aoc\aoc2025\input", &runtype, i);
+                }
+                Ok(())
+            } else {
+                rundays(r"C:\Users\thiba\Desktop\aoc\aoc2025\input", &runtype, day)
+            }
         }
         _ => {
             eprintln!("Invalid mode. Use 'generate' or 'run'.");
